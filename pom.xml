@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.breadcrumbdata</groupId>
-	<artifactId>anchor_service</artifactId>
+	<artifactId>anchor-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>anchor_service</name>
+	<name>anchor-service</name>
 	<description>Demo anchor service for breadcrumbdata </description>
 
 	<properties>
