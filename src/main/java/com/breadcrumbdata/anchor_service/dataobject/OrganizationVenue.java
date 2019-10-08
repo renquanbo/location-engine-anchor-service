@@ -8,7 +8,7 @@ public class OrganizationVenue {
     @Id
     private Integer venueId;
 
-    private Integer OrganizationId;
+    private Integer organizationId;
 
     public Integer getVenueId() {
         return venueId;
@@ -19,10 +19,18 @@ public class OrganizationVenue {
     }
 
     public Integer getOrganizationId() {
-        return OrganizationId;
+        return organizationId;
     }
 
     public void setOrganizationId(Integer organizationId) {
-        OrganizationId = organizationId;
+        this.organizationId = organizationId;
+    }
+
+    @Override
+    public String toString() {
+        return "OrganizationVenue{" +
+                "venueId=" + venueId +
+                ", organizationId=" + organizationId +
+                '}';
     }
 }

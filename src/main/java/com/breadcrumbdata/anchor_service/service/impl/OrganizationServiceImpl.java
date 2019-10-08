@@ -22,12 +22,23 @@ public class OrganizationServiceImpl implements OrganizationService{
     UserOrganizationRepository userOrganizationRepository;
 
 
-
+    /**
+     * It will create organization record in Organization table
+     * and it will create organization user relation in user_organization table
+     * @param name
+     * @param userId
+     * @return Organization
+     */
     @Override
-    public Organization create(String name) {
+    public Organization create(String name, Integer userId) {
         Organization organization = new Organization();
         organization.setName(name);
-        return organizationRepository.save(organization);
+        Organization savedOrganization = organizationRepository.save(organization);
+        UserOrganization userOrganization = new UserOrganization();
+        userOrganization.setUserId(userId);
+        userOrganization.setOrganizationId(savedOrganization.getId());
+        userOrganizationRepository.save(userOrganization);
+        return savedOrganization;
     }
 
     @Override
