@@ -1,7 +1,6 @@
 package com.breadcrumbdata.anchor_service.controller;
 
 import com.breadcrumbdata.anchor_service.dataobject.Anchor;
-import com.breadcrumbdata.anchor_service.exception.ExistIdException;
 import com.breadcrumbdata.anchor_service.service.AnchorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +16,14 @@ public class AnchorController {
     AnchorService anchorService;
 
     @GetMapping
-    public List<Anchor> getAnchors(){
-        List<Anchor> anchorList = anchorService.findAll();
-        return anchorList;
+    public List<Anchor> getAnchors() {
+        return anchorService.findAll();
+
+    }
+
+    @GetMapping("/{id:\\d+}")
+    public Anchor getAnchor(@Valid @PathVariable String id) {
+        return anchorService.findOneById(Integer.valueOf(id));
     }
 
     @PostMapping
